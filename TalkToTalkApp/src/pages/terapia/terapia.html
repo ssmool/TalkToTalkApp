@@ -1,0 +1,35 @@
+<!--
+  Generated template for the TerapiaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sistema de Terapia</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content style="background: url('../assets/img/bghome.jpg') no-repeat;background-size: 100% 100%" padding>
+    <h2>{{terapiaTitulo}}</h2>
+    <h4>{{TerapiaItem.Titulo}}</h4>
+    <h6>{{TerapiaItem.Descricao}}</h6>
+    <ion-list>
+      <ion-item>
+        <img width="100%" height="100px" src="{{TerapiaItem.Imagem}}" style="margin:auto;display:block;"/><br>
+      </ion-item>
+      <ion-item style="text-align: center;">
+        <h6>Pressione o botão para gravar:</h6><br>
+        <button (click)="accessRecording()"><ion-img width="70px" height="70px" src='{{recordingIco}}' style="margin:auto;display:block;"></ion-img></button>
+        <button (click)="accessPlay()"><ion-img width="70px" height="70px" src='{{audioIco}}' style="margin:auto;display:block;"></ion-img></button>
+      </ion-item>
+      <ion-item>
+        <ion-textarea style="color:red;" [(ngModel)]="recordingMessage" name="recordingMessage"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <button ion-button color="danger" full (click)="requestNewItem()">Enviar</button>
+      </ion-item>
+    </ion-list>
+</ion-content>

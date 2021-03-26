@@ -1,0 +1,37 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sistema de Terapia</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content style="background: url('../assets/img/bghome.jpg') no-repeat;background-size: 100% 100%" padding>
+    <h5>Área de Acesso:</h5><br>
+    Você deve acessar o sistema com sua identificação e senha.<br><br>
+    <ion-list align="center">
+      <ion-item>
+        <ion-img width="80" height="80" src="{{userBanner}}" style="margin:auto;display:block;"></ion-img><br><button ion-button color="{{userColor}}" full>{{userLabel}}</button>    
+      </ion-item>
+      <ion-item>
+          <ion-label color="primary" floating>+Seu e-mail</ion-label>
+          <ion-input type="email" [(ngModel)]="loginEmail" name="loginEmail"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label color="primary" floating>+Sua senha</ion-label>
+          <ion-input type="password" [(ngModel)]="loginSenha" name="loginSenha"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-textarea style="color:red;" [(ngModel)]="loginStatus" name="loginStatus"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <button ion-button color="{{userColor}}" full (click)="userLoggin()">+Acessar</button>
+      </ion-item>
+    </ion-list>
+</ion-content>

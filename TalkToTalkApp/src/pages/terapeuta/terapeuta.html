@@ -1,0 +1,54 @@
+<!--
+  Generated template for the PacientePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sistema de Terapia</ion-title>
+  </ion-navbar>
+  <script type="text/javascript">
+    alert("js is running");
+  </script>
+</ion-header>
+
+<ion-content style="background: url('../assets/img/bghome.jpg') no-repeat;background-size: 100% 100%" padding>
+    <h5>Portal do Terapeuta:</h5><br>
+    <ion-list align="center">
+      <ion-item>
+        <ion-img width="80" height="80" src="assets/img/docIcon.png" style="margin:auto;display:block;"></ion-img><br><button ion-button color="danger" full>+Sou Terapeuta</button>    
+      </ion-item>
+    </ion-list>
+    No Portal do Terapeuta você pode escolher a realizar as Terapias disponíveis no sistema.<br><br>
+    Você pode avaliar os pacientes abaixo:<br><br>
+    <!--<button ion-button color="default" full (click)="openTerapias()">Listar Pacientes</button>-->
+    <ion-list align="center">
+      <ion-item *ngFor="let item of TerapiasList">
+        Paciente: {{item.Nome}}<br><button ion-button color="default" full (click)="getUserTerapias(item.PacienteID, item.Nome)">Avaliar Paciente</button>    
+      </ion-item>
+    </ion-list>
+    <ng-container *ngIf="!itemIsVisible">
+    <ion-list align="center">
+      <ion-item *ngFor="let item of TerapiasListPaciente">
+        Paciente em Avaliação: {{userName}}<br>
+        Data: {{itemDate}}<br>
+        <button ion-button color="default" full (click)="getUserTerapiaItem(item.TerapiaHistoricoID)">Acessar Terapias</button>
+      </ion-item>
+    </ion-list>
+    </ng-container>
+    <ng-container *ngIf="itemIsVisible">
+    <ion-list align="center">
+      <ion-item>
+        {{userName}}
+        Data: {{itemDate}}<br>Avaliação: {{itemAverage}}<br>
+        <!--<button ion-button color="default" full (click)="playAudioItem(itemAudio)">Tocar Gravação</button>-->
+        <audio id="player" name="player" src="{{itemAudio}}" controls onclick="javascript:playAudioGraph();"></audio>
+        <button ion-button color="default" full (click)="closeItem()">[x] Fechar</button>
+        <canvas id="canvas" width="920px" height="150px"></canvas>
+      </ion-item>
+    </ion-list>
+    </ng-container>
+</ion-content>
+

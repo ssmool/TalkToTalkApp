@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Sistema de Terapia
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background: url('../assets/img/bghome.jpg') no-repeat;background-size: 100% 100%;" padding>
+  Seja bem-vindo ao Sistema de Terapia para pacientes com problemas de dicção.<br><br>
+  Você poderá juntar-se a nós como Paciente ou Terapeuta através da seção de cadastro.<br><br>
+  <ion-list align="center">
+    <ion-item>
+      <ion-img width="120" height="120" src="assets/img/pacientIcon.png" style="margin:auto;display:block;"></ion-img><br><button ion-button color="danger" full (click)="userLogin('attrxloginxvalx01')">+Sou Paciente</button>    
+    </ion-item>
+    <ion-item>
+      <h3><ion-img width="120" height="120" src="assets/img/docIcon.png" style="margin:auto;display:block;"></ion-img><br><button ion-button color="default" full (click)="userLogin('attrxloginxvalx02')">+Sou Médico</button></h3>
+    </ion-item>
+  </ion-list>
+  <audio id="player" name="player" src="http://talktootalk.gear.host/Up/Recordings/sdfRGTBFTGJTUY23243esdfblobtoken532351blobuser.mp3" controls></audio>
+  <div id="waveform" style="border:solid 1px #333;"></div>
+</ion-content>
