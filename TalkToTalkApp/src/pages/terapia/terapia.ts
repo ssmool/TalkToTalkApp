@@ -58,7 +58,7 @@ export class TerapiaPage {
     params.append('blobtoken', this.blobToken);*/
     let params = "idPaciente=" + this.pacienteIndex + "&idTerapia=" + this.terapiaIndex + "&skip=" + this.skipIndex + "&blobtoken=" + this.blobToken;
     //this.http.post("http://localhost:59109/api/pacientesapi/Ready/?" + params.toString(), null).subscribe(data => {
-      this.http.post("http://talktootalk.gear.host/api/pacientesapi/Ready/?" + params.toString(), null).subscribe(data => {
+      this.http.post("http://localhost:59109/api/pacientesapi/Ready/?" + params.toString(), null).subscribe(data => {
       console.log("HTTP WEBAPI RESULT TO GetLIST of Paciente = " + JSON.stringify(data.json()));
       if(JSON.stringify(data.json()).toString() != '"false"')
       {
@@ -89,7 +89,7 @@ export class TerapiaPage {
     params.append('blobtoken', this.blobToken);*/
     let params = "idPaciente=" + this.pacienteIndex + "&idTerapia=" + this.terapiaIndex + "&skip=" + this.skipIndex + "&blobtoken=" + this.fileName;
     //this.http.post("http://localhost:59109/api/pacientesapi/Ready/?" + params.toString(), null).subscribe(data => {
-    this.http.post("http://talktootalk.gear.host/api/pacientesapi/Ready/?" + params.toString(), null).subscribe(data => {
+    this.http.post("http://localhost:59109/api/pacientesapi/Ready/?" + params.toString(), null).subscribe(data => {
       console.log("HTTP WEBAPI RESULT TO GetLIST of Paciente = " + JSON.stringify(data.json()));
       if(JSON.stringify(data.json()).toString() != '"false"')
       {
@@ -233,10 +233,10 @@ export class TerapiaPage {
         console.log("files not found ")
     });
 
-    fileTransfer.upload(this.filePath, encodeURI('http://talktootalk.gear.host/api/pacientesapi/UploadAppAudio'), options, true)
+    fileTransfer.upload(this.filePath, encodeURI('http://localhost:59109/api/pacientesapi/UploadAppAudio'), options, true)
       .then((data) => {
       this.fileName = data.response.replace(/"([^"]+(?="))"/g, '$1');
-      console.log(data.response+" Uploaded Successfully | File = http://talktootalk.gear.host/Up/Recordings/" + this.fileName);
+      console.log(data.response+" Uploaded Successfully | File = http://localhost:59109/Up/Recordings/" + this.fileName);
       this.audioFileName = "http://talktootalk.gear.host/Up/Recordings/" + data.response.replace(/"([^"]+(?="))"/g, '$1');
       this.recordingMessage = "Recording uploaded successfully...";
     }, (err) => {

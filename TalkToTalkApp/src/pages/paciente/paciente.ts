@@ -31,7 +31,7 @@ export class PacientePage {
     //params.append('id',this.userIndex);
     let params = "id=" + this.userIndex;
     //this.http.post("http://localhost:59109/api/pacientesapi/GetListTerapia/?" + params.toString(), null).subscribe(data => {
-    this.http.post("http://talktootalk.gear.host/api/pacientesapi/GetListTerapia/?" + params.toString(), null).subscribe(data => {
+    this.http.post("http://localhost:59109/api/pacientesapi/GetListTerapia/?" + params.toString(), null).subscribe(data => {
       console.log("HTTP WEBAPI RESULT TO GetLIST of Paciente = " + JSON.stringify(data.json()));
       if(JSON.stringify(data.json()).toString() != '"false"')
       {

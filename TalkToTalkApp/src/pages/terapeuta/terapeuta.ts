@@ -43,7 +43,7 @@ export class TerapeutaPage {
     console.log('ionViewDidLoad TerapeutaPage');
     let params = "id=" + this.userIndex;
     //this.http.post("http://localhost:59109/api/pacientesapi/GetListTerapia/?" + params.toString(), null).subscribe(data => {
-    this.http.post("http://talktootalk.gear.host/api/terapeutasapi/GetTerapiasUsers/?" + params.toString(), null).subscribe(data => {
+    this.http.post("http://localhost:59109/api/pacientesapi/GetListTerapia/?" + params.toString(), null).subscribe(data => {
       console.log("HTTP WEBAPI RESULT TO GetLIST of Pacientes = " + JSON.stringify(data.json()));
       if(JSON.stringify(data.json()).toString() != '"false"')
       {
@@ -59,7 +59,7 @@ export class TerapeutaPage {
   getUserTerapias(id: number, name: string):void
   {
       this.userName = name;
-      this.http.post("http://talktootalk.gear.host/api/terapeutasapi/GetTerapiasUsersEvaluate/?id=" + id, null).subscribe(data => {
+      this.http.post("http://localhost:59109/api/terapeutasapi/GetTerapiasUsersEvaluate/?id=" + id, null).subscribe(data => {
         console.log("HTTP WEBAPI RESULT TO GetLIST of Paciente = " + JSON.stringify(data.json()));
         if(JSON.stringify(data.json()).toString() != '"false"')
         {
@@ -75,7 +75,7 @@ export class TerapeutaPage {
   getUserTerapiaItem(id:number)
   {
     this.itemIsVisible = true;
-    this.http.post("http://talktootalk.gear.host/api/terapeutasapi/GetTerapiasUsersEvaluateItem/?id=" + id, null).subscribe(data => {
+    this.http.post("http://localhost:59109/api/terapeutasapi/GetTerapiasUsersEvaluateItem/?id=" + id, null).subscribe(data => {
       console.log("HTTP WEBAPI RESULT TO GetTerapiaItem of Paciente = " + JSON.stringify(data.json()));
       if(JSON.stringify(data.json()).toString() != '"false"')
       {
@@ -86,14 +86,14 @@ export class TerapeutaPage {
         console.log("DATA LIST = " + terapiaTopico.TerapiaHistoricoID);
         this.itemDate = terapiaTopico.DataCadastro;
         this.itemAverage = terapiaTopico.Avaliacao;
-        this.itemAudio = "http://talktootalk.gear.host/Up/Recordings/" + terapiaTopico.audioProcessado;
+        this.itemAudio = "http://localhost:59109/Up/Recordings/" + terapiaTopico.audioProcessado;
       }
     });
   }
 
   playAudioItem(file:string)
   {
-    let fileUrl: string  = "http://talktootalk.gear.host/Up/Recordings/" + file;
+    let fileUrl: string  = "http://localhost:59109/Up/Recordings/" + file;
     let ft: FileTransferObject = this.txfr.create();
     let fn = this.file.dataDirectory + fileUrl.substring(fileUrl.lastIndexOf('/') + 1);
     ft.download( fileUrl, fn ).then(

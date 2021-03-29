@@ -73,7 +73,7 @@ export class LoginPage {
     {
       this.loginStatus = 'Wating for loggin Paciente is sended...';
       //this.http.post("http://localhost:59109/api/pacientesapi/Login/?" + params.toString(), null).subscribe(data => {
-      this.http.post("http://talktootalk.gear.host/api/pacientesapi/Login?email=" +email + "&senha=" + senha, null).subscribe(data => {
+      this.http.post("http://192.168.0.7:59109/api/terapeutasapi/Login/?email=" +email + "&senha=" + senha, null).subscribe(data => {
           if(JSON.stringify(data.json()).toString() != '"false"')
           {
             this.loginStatus = 'Loggin is sended, wait for result...';
@@ -91,7 +91,6 @@ export class LoginPage {
     {
       this.loginStatus = 'Wating for loggin Terapeuta is sended...';
       //this.http.post("http://192.168.0.7:59109/api/terapeutasapi/Login/?email=" +email + "&senha=" + senha, null).subscribe(data => {
-      this.http.post("http://talktootalk.gear.host/api/terapeutasapi/Login?email=" +email + "&senha=" + senha, null).subscribe(data => {
           if(JSON.stringify(data.json()).toString() != '"false"')
           {
             this.loginStatus = 'Loggin is sended, wait for result...';
