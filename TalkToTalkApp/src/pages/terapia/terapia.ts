@@ -237,7 +237,7 @@ export class TerapiaPage {
       .then((data) => {
       this.fileName = data.response.replace(/"([^"]+(?="))"/g, '$1');
       console.log(data.response+" Uploaded Successfully | File = http://localhost:59109/Up/Recordings/" + this.fileName);
-      this.audioFileName = "http://talktootalk.gear.host/Up/Recordings/" + data.response.replace(/"([^"]+(?="))"/g, '$1');
+      this.audioFileName = "http://localhost:59109/Up/Recordings/" + data.response.replace(/"([^"]+(?="))"/g, '$1');
       this.recordingMessage = "Recording uploaded successfully...";
     }, (err) => {
       console.log("UPLOAD ERROR = " + err.exception);
